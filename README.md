@@ -31,6 +31,15 @@ docker run -d -e TARGET_API="http://host.docker.internal:8998" -p 3000:3000 skil
 
 This is a test server to verify that the application is working correctly.
 
+### NodeJS
+
 ```bash
-node ./test-server.mjs
+node ./testing/node/test-server.mjs
+```
+
+### ASP.NET Core
+
+```bash
+cd ./testing/dotnet
+dotnet run
 ```

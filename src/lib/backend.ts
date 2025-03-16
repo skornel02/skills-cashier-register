@@ -6,6 +6,9 @@ export async function sendRequestToBackend(order: unknown, type: string) {
       `${process.env.TARGET_API}/${process.env.TARGET_PATH}`,
       {
         method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(order),
       }
     );
