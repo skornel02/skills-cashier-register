@@ -28,7 +28,7 @@ export const staticOrder1 = randomOrder(
 export const staticOrder2 = randomOrder(
   [
     {
-      id: "00000000-0000-0000-0000-000000000000",
+      id: "d42abb49-92cb-4284-8e2a-d386c969f69a",
       name: "Invalid product",
     },
   ],
@@ -39,7 +39,7 @@ export const staticOrder3 = randomOrder(
   [staticProducts[1]],
   [
     {
-      id: "00000000-0000-0000-0000-000000000000",
+      id: "6a102b53-14d6-4f12-9530-264a3f746cbc",
       firstName: "Invalid",
       lastName: "customer",
     },
