@@ -25,6 +25,8 @@ export function register() {
 
       const order = randomOrder(staticProducts, staticCustomers);
 
+      console.log("Order:", order);
+
       await sendRequestToBackend(order, "Random");
     }
 

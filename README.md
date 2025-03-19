@@ -2,7 +2,12 @@
 
 ## Edit test data
 
-To edit the available test data, you can edit the file `./src/lib/static-data.ts`.
+To edit the available test data, you can set the following environment variables:
+
+```bash
+export CUSTOMERS_JSON='[{...}]'
+export PRODUCTS_JSON='[{...}]'
+```
 
 ## Getting Started with cashier application
 

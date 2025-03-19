@@ -2,10 +2,6 @@ import { faker } from '@faker-js/faker'
 
 faker.setDefaultRefDate(new Date());
 
-const randomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 // function shuffle(array) {
 //   let currentIndex = array.length,
 //     randomIndex;
@@ -89,32 +85,19 @@ export const randomProduct = () => {
 
 export const randomOrder = (products, customers) => {
   const orderDate = faker.date.past({ years: 2 });
-  const orderItems = faker.helpers.multiple(() => randomOrderItem(products), {
-    count: randomNumber(1, 5),
-  });
+  const selectedProduct = faker.helpers.arrayElement(products);
+
   return {
-    id: faker.string.uuid(),
+    orderNumber: faker.number.int({
+      min: 100000,
+      max: 999999,
+    }),
     customerId: faker.helpers.arrayElement(customers).id,
     orderDate:
       orderDate.toISOString().slice(0, 10) +
       " " +
       orderDate.toTimeString().slice(0, 8),
-    totalAmount: parseFloat(
-      orderItems
-        .reduce((acc, item) => {
-          const product = products.find((p) => p.id === item.productId);
-          return acc + product.price * item.quantity;
-        }, 0)
-        .toFixed(2)
-    ),
-    items: orderItems,
-  };
-};
-
-export const randomOrderItem = (products) => {
-  return {
-    productId: faker.helpers.arrayElement(products).id,
-    quantity: randomNumber(1, 5),
+    productId: selectedProduct.id,
   };
 };
 

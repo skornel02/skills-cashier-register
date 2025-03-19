@@ -29,7 +29,7 @@ async function sendTestCase(number: number) {
   "use server";
 
   const order = staticOrders[number];
-  await sendRequestToBackend(order, "Test Case " + number + 1);
+  await sendRequestToBackend(order, "Test Case " + (number + 1));
   revalidatePath("/");
 }
 
