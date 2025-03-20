@@ -103,6 +103,7 @@ export const randomOrder = (products, customers) => {
       orderDate.toTimeString().slice(0, 8),
     productId: selectedProduct.id,
     quantity,
+    isTakeaway: faker.datatype.boolean(),
   };
 };
 
