@@ -86,11 +86,15 @@ export const randomProduct = () => {
 export const randomOrder = (products, customers) => {
   const orderDate = faker.date.past({ years: 2 });
   const selectedProduct = faker.helpers.arrayElement(products);
+  const quantity = faker.number.int({
+    min: 1,
+    max: 5,
+  })
 
   return {
     orderNumber: faker.number.int({
       min: 100000,
-      max: 999999,
+      max: 9999999,
     }),
     customerId: faker.helpers.arrayElement(customers).id,
     orderDate:
@@ -98,6 +102,7 @@ export const randomOrder = (products, customers) => {
       " " +
       orderDate.toTimeString().slice(0, 8),
     productId: selectedProduct.id,
+    quantity,
   };
 };
 
